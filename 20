@@ -1,0 +1,39 @@
+#20 - Faça um programa que exiba na tela a quantidade de acertos de cada aluno em uma prova, e caso a nota seja igual ou maior que 60% da quantidade de questões exiba “Classificado”, se não “Desclassificado”. Para isso crie uma TUPLA que receba o cartão gabarito com as 20 questões, cada uma com cinco alternativas identificadas por A, B, C, D e E., Depois crie uma lista para cada Aluno e receba as 20 questões da prova dele e diga se o aluno está Classificado ou Desclassificado. Ao final, pergunte se o usuário deseja cadastrar outro aluno ou finalizar o programa.
+
+
+gabarito = ('A','B','C','D','E','A','B','C','D','E','A','B','C','D','E','A','B','C','D','E')
+
+while True:
+    print("\n--- Cadastro de aluno ---")
+    respostas_aluno = []
+
+   
+    for i in range(20):
+        while True:
+            resposta = input(f"Digite a resposta da questão {i+1} (A/B/C/D/E): ").upper()
+            if resposta in ['A','B','C','D','E']:
+                respostas_aluno.append(resposta)
+                break
+            else:
+                print("Resposta inválida. Digite apenas A, B, C, D ou E.")
+
+    
+    acertos = 0
+    for i in range(20):
+        if respostas_aluno[i] == gabarito[i]:
+            acertos += 1
+
+   
+    if acertos >= 12:  # 60% de 20 questões = 12 acertos
+        situacao = "Classificado"
+    else:
+        situacao = "Desclassificado"
+
+   
+    print(f"\nO aluno acertou {acertos} questões. Situação: {situacao}")
+
+    
+    continuar = input("\nDeseja cadastrar outro aluno? (S/N): ").upper()
+    if continuar != 'S':
+        print("Programa finalizado.")
+        break
