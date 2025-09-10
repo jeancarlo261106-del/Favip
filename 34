@@ -1,0 +1,44 @@
+#34) Faça um programa que cadastre o nome, a altura, o peso, o cpf e sexo de algumas pessoas. Com os dados cadastrados, em seguida localizar uma pessoas através do seu CPF e imprimir o seu IMC.
+#Obs.: Solicitar ao usuário se deseja cadastrar mais pessoas ou parar. 
+
+
+
+pessoas = []
+
+while True:
+    print("\n--- Cadastro de Pessoa ---")
+    nome = input("Nome: ")
+    altura = float(input("Altura (em metros): "))
+    peso = float(input("Peso (em kg): "))
+    cpf = input("CPF: ")
+    sexo = input("Sexo (M/F): ").strip().upper()
+
+    pessoa = {
+        "nome": nome,
+        "altura": altura,
+        "peso": peso,
+        "cpf": cpf,
+        "sexo": sexo
+    }
+    pessoas.append(pessoa)
+
+    continuar = input("Deseja cadastrar outra pessoa? (S/N): ").strip().upper()
+    if continuar != 'S':
+        break
+
+print("\n--- Consulta de IMC ---")
+cpf_busca = input("Digite o CPF da pessoa que deseja consultar: ")
+
+# Busca e cálculo do IMC
+encontrado = False
+for pessoa in pessoas:
+    if pessoa["cpf"] == cpf_busca:
+        imc = pessoa["peso"] / (pessoa["altura"] ** 2)
+        print(f"\nNome: {pessoa['nome']}")
+        print(f"CPF: {pessoa['cpf']}")
+        print(f"IMC: {imc:.2f}")
+        encontrado = True
+        break
+
+if not encontrado:
+    print("CPF não encontrado.")
