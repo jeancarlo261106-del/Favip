@@ -1,0 +1,40 @@
+#21 - Faça um programa que peça do usuário o nome de 6 cidades, depois de inseridas verifique se há nomes iguais e havendo peça para que sejam inseridos novamente, e também crie a opção do usuário concatenar dados ao nome da cidade. E por fim, exiba qual o nome de cidade mais extenso.
+
+
+
+gabarito = ('A','B','C','D','E','A','B','C','D','E','A','B','C','D','E','A','B','C','D','E')
+
+while True:
+    print("\n--- Cadastro de aluno ---")
+    respostas_aluno = []
+
+   
+    for i in range(20):
+        while True:
+            resposta = input(f"Digite a resposta da questão {i+1} (A/B/C/D/E): ").upper()
+            if resposta in ['A','B','C','D','E']:
+                respostas_aluno.append(resposta)
+                break
+            else:
+                print("Resposta inválida. Digite apenas A, B, C, D ou E.")
+
+    
+    acertos = 0
+    for i in range(20):
+        if respostas_aluno[i] == gabarito[i]:
+            acertos += 1
+
+   
+    if acertos >= 12:
+        situacao = "Classificado"
+    else:
+        situacao = "Desclassificado"
+
+   
+    print(f"\nO aluno acertou {acertos} questões. Situação: {situacao}")
+
+    
+    continuar = input("\nDeseja cadastrar outro aluno? (S/N): ").upper()
+    if continuar != 'S':
+        print("Programa finalizado.")
+        break
