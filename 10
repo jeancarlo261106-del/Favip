@@ -1,0 +1,6 @@
+#10) Faça um Programa que peça a temperatura em graus Celsius, transforme e mostre em graus Fahrenheit.
+
+fahrenheit = float(input("Digite a temperatura em Fahrenheit: "))
+celsius = 5 * ((fahrenheit - 32) / 9)
+
+print(f"A temperatura em Celsius é: {celsius:.2f}°C")
