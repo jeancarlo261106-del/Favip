@@ -1,0 +1,15 @@
+#26) Faça um programa que pergunte o preço de três produtos e informe qual produto você deve comprar, sabendo que a decisão é sempre pelo mais barato.
+
+preco1 = float(input("Digite o preço do primeiro produto: R$ "))
+preco2 = float(input("Digite o preço do segundo produto: R$ "))
+preco3 = float(input("Digite o preço do terceiro produto: R$ "))
+
+
+precos = [preco1, preco2, preco3]
+
+menor_preco = min(precos)
+
+indice = precos.index(menor_preco)
+produto_escolhido = indice + 1
+
+print(f"\nVocê deve comprar o produto {produto_escolhido}, que custa R$ {menor_preco:.2f}")
